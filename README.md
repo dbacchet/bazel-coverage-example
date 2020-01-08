@@ -21,3 +21,10 @@ To run the unit test:
 ```
 bazel test //...
 ```
+
+To create the coverage report:
+```
+bazel coverage --instrument_test_targets --experimental_cc_coverage --combined_report=lcov --coverage_report_generator=@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main //...
+genhtml bazel-out/_coverage/_coverage_report.dat -o report
+```
+the report will be generated in the `report` folder
